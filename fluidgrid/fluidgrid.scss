@@ -39,14 +39,14 @@ body {margin:0 auto; position: relative; min-width: 600px;}
 .fluidgrid_defaults{float:left; position:relative; margin-right:$gutter#{"%"}; left:$gutter#{"%"};}
 $sequence: 1;
 @while $sequence < $grid {
-  .span-#{$sequence} {
+  .grid_#{$sequence} {
     @extend .fluidgrid_defaults;
   }
   $sequence: $sequence + 1; 
 }
 
 // Style for a full width span
-.span-full {width: 100%;float: left;clear: both;}
+.grid_full {width: 100%;float: left;clear: both;}
 
 // Reset the margin for first and last span
 .container_#{$grid} {
@@ -96,7 +96,7 @@ $cols :$grid - 1;
   $coef : 100 / (($col_gut_width * $cols) - $gutter);
   
   .container_#{$grid} {
-    .span-#{$cols} {      
+    .grid_#{$cols} {      
       
       //////////////////////////////////////////////////////////////////////
       // sub columns attributes
@@ -106,7 +106,7 @@ $cols :$grid - 1;
       @while $subcols > 0 {
         
         // normal subcolumns
-        .span-#{$subcols} {
+        .grid_#{$subcols} {
           width : (($col_gut_width * $subcols) - $gutter) * $coef#{"%"};
           left : $gutter * $coef#{"%"};
           margin-right : $gutter * $coef#{"%"};
@@ -166,8 +166,8 @@ $cols :$grid - 1;
 $cols :$grid - 1;
 .alpha_omega_holder {left:0;}
 @while $cols > 0 {
-  .container_#{$grid} .span-#{$cols} .alpha,
-  .container_#{$grid} .span-#{$cols} .omega{
+  .container_#{$grid} .grid_#{$cols} .alpha,
+  .container_#{$grid} .grid_#{$cols} .omega{
     @extend .alpha_omega_holder;
   }
   $cols : $cols - 1;
@@ -183,7 +183,7 @@ $cols :$grid - 1;
   .container_#{$grid} {
     
     // Width of the columns in the first level grid
-    .span-#{$span} {
+    .grid_#{$span} {
       width: (($col_gut_width * $span) - $gutter)#{"%"};
     } 
     
